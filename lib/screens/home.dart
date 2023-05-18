@@ -1,4 +1,6 @@
+import 'package:currency_convertor/components/usdtoany.dart';
 import 'package:currency_convertor/functions/fetchrates.dart';
+import 'package:currency_convertor/models/allCurrencies.dart';
 import 'package:currency_convertor/models/ratesmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late Future<RatesModel> result;
-  // late Future<Map> allcurrency;
+  late Future<Map> allCurrencies;
   final formkey =GlobalKey<FormState>();
 
   @override
@@ -20,6 +22,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     result = fetchrates();
+    allCurrencies = fetchcurrencies();
   }
 
   Widget build(BuildContext context) {
@@ -54,7 +57,22 @@ class _HomeState extends State<Home> {
                 );
               }
               return Center(
-                child: Text(snapshot.data!.rates.toString(),style: TextStyle(color: Colors.white,fontSize: 20,),),
+                child: FutureBuilder<Map>(
+                  future: allCurrencies,
+                  builder: (context, currSnapshot){
+                    if(currSnapshot.connectionState == ConnectionState.waiting){
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return Column(
+                      children: [
+                        UsdToAny(rates: snapshot.data!.rates,
+                        currencies: currSnapshot.data!)
+                      ],
+                    );
+                  },
+                )
               );
             },
           ),
