@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class UsdToAny extends StatefulWidget {
 
   final rates;
