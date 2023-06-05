@@ -16,7 +16,7 @@ class _AnyToAnyState extends State<AnyToAny> {
 
   String dropdownValue1 = 'INR';
   String dropdownValue2 = 'AUD';
-  String answer = 'Converted currency will be shown here :) ';
+  String answer = 'Converted Currency ';
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _AnyToAnyState extends State<AnyToAny> {
             TextFormField(
               key: const ValueKey('amount',),
               controller: amountController,
-              decoration: const InputDecoration(hintText: 'Enter Amount', hintStyle: TextStyle(color: Colors.grey)),
+              decoration: const InputDecoration(hintText: 'Enter Amount', hintStyle: TextStyle(color: Colors.white)),
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               keyboardType: TextInputType.number,

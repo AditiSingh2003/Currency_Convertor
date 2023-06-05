@@ -41,7 +41,7 @@ class _UsdToAnyState extends State<UsdToAny> {
               cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
-                hintText: 'Enter USD', hintStyle: TextStyle(color: Colors.grey),
+                hintText: 'Enter Amount', hintStyle: TextStyle(color: Colors.white),
               ),
               keyboardType: TextInputType.number,
             ),
@@ -80,7 +80,7 @@ class _UsdToAnyState extends State<UsdToAny> {
                   child: ElevatedButton(
                     onPressed: (){
                       setState(() {
-                        answer = usdController.text + 'USD           =           ' + convertusd(widget.rates, usdController.text, dropdownValue) + '  ' + dropdownValue;
+                        answer = usdController.text + 'USD    =    '  + convertusd(widget.rates, usdController.text, dropdownValue) + '  ' + dropdownValue;
                       });
                     },
                     child: const Text('Convert'),
