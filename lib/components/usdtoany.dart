@@ -38,7 +38,7 @@ class _UsdToAnyState extends State<UsdToAny> {
             TextFormField(
               key: const Key('usd'),
               controller: usdController,
-              cursorColor: Colors.white,
+              cursorColor: Colors.grey,
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
                 hintText: 'Enter Amount', hintStyle: TextStyle(color: Colors.white),
